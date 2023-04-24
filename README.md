@@ -25,8 +25,6 @@ Users should be able to:
 ## Screenshot
 
 <img src="./design/desktop-preview.jpg" alt="Interface" width="100%" height="auto">
-<img src="./design/desktop-design-home-dark.jpg" alt="Interface" width="100%" height="auto">
-<img src="./design/desktop-design-home-light.jpg" alt="Interface" width="100%" height="auto">
 
 ## Languages 
 

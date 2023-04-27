@@ -43,7 +43,7 @@ Users should be able to:
 - Updated the readme file to match the project descriptions
 - More fixes for readme
 
-- [x] 24th april, 2023.
+- [x] 23rd - 24th april, 2023.
 - Added Components folder in src.
     - [Header -> index.tsx and styles.ts],
 - Added Pages folder in src. 
@@ -52,6 +52,10 @@ Users should be able to:
     - [ MainRoutes.tsx ] 
 - Added api.ts, Apps.tsx, custom.d.ts, index.css, index.tsx, react-app-env.d.ts, tsconfig.json as well as updated other files to fit the app development from the default created packages from npm.
 - On this day, I designed the Navigation or header.
+- More fixes
+
+- [x] 25th - 27th april, 2023.
+- Added inputs for search and filter
 - More fixes
 
 ## Deployed Link

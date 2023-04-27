@@ -14,7 +14,6 @@ export const Header = styled.header `
 
         p {
             cursor: pointer;
-            font-weight: bold;
         }
     }
 `

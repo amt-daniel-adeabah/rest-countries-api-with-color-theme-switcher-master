@@ -1,3 +1,4 @@
+
 export interface CountryItemTS {
     name: string,
     capital: string,

@@ -4,10 +4,18 @@ import { CountriesTS } from '../../types/Countries'
 import { Input } from '../../components/Input'
 import { api } from '../../api'
 import { CountryItem } from '../../components/CountryItem'
+import Pagination from './Pagination'
+import { useForm } from '../../contexts/ThemeContext'
+
+const LIMIT = 24;
 
 export const Countries = () => {
-    const [countries, setCountries] = useState<CountriesTS[]>([])
+    const { state } = useForm()
     const [loading, setLoading] = useState(false)
+    const [countries, setCountries] = useState<CountriesTS[]>([])
+    const [search, setSearch] = useState('')
+    const [offset, setOffset] = useState(0);
+
 
     useEffect(() => {
         getAllCountries()
@@ -20,25 +28,43 @@ export const Countries = () => {
         setLoading(false)
     }
 
+    const lowerSearch = search.toLowerCase()
+
+    const filteredCountries = countries.filter(country => country
+        .name.toLowerCase().includes(lowerSearch) || country.
+        region.toLowerCase().includes(lowerSearch));
+
+    const pagCountries = filteredCountries.slice(offset, offset+24)
+
     return (
-        <C.CountriesArea >
-            <Input />
-             <div className="countries">
-                {loading && 
-                    <div className="">Loading...</div>
+        <C.CountriesArea theme={state.theme}>
+            <Input
+                value={search}
+                search={setSearch}
+            />
+            <div className='countries'>
+                {loading &&
+                    <div className='loading'>Loading...</div>
                 }
                 {!loading &&
-                    countries.map((item) => {
+                    pagCountries.map((item) => (
                         <CountryItem
+                            key={item.numericCode}
                             name={item.name}
                             population={item.population}
                             region={item.region}
                             capital={item.capital}
                             flag={item.flags.png}
                         />
-                    })  
+                    ))
                 }
-             </div>
+            </div>
+            <Pagination
+                limit={LIMIT}
+                total={filteredCountries.length}
+                offset={offset}
+                setOffset={setOffset}
+            />
         </C.CountriesArea>
     )
 }

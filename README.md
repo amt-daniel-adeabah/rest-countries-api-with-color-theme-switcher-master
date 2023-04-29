@@ -43,7 +43,7 @@ Users should be able to:
 - Updated the readme file to match the project descriptions
 - More fixes for readme
 
-- [x] 23rd - 24th april, 2023.
+- [x] 21st - 24th april, 2023.
 - Added Components folder in src.
     - [Header -> index.tsx and styles.ts],
 - Added Pages folder in src. 
@@ -56,6 +56,12 @@ Users should be able to:
 
 - [x] 25th - 27th april, 2023.
 - Added inputs for search and filter
+- Able to display countries from http request from <code>axios</code> on homepage
+- More fixes
+
+- [x] 28th - 29th april, 2023.
+- Added Country page, theme, and pagnation.
+- Looked forward to adding <code>fontawesome</code> in order to import and display icons
 - More fixes
 
 ## Deployed Link

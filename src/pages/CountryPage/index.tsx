@@ -31,7 +31,7 @@ export const CountryPage = () => {
     return (
         <C.CountryPage theme={state.theme}>
             <div className='container'>
-                <Link to="/" className='back--button'>icon Back</Link>
+                <Link to="/" className='back--button'><i className="fas fa-long-arrow-alt-left"></i> Back</Link>
                 {loading &&
                     <div className='loading'>Loading..</div>
                 }

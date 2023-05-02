@@ -64,5 +64,11 @@ Users should be able to:
 - Looked forward to adding <code>fontawesome</code> in order to import and display icons
 - More fixes
 
+- [x] 30th - 2nd may, 2023.
+- Added fontawesome
+- Worked responsiveness
+- Fixed filter options design
+- More fixes
+
 ## Deployed Link
 Deployed link: https://da-rest-countries.netlify.app/

@@ -6,7 +6,7 @@ export const CountriesArea = styled.main<{theme: string}>`
     transition: all ease 0.2s;
     .countries {
         display: grid;
-        width: 1024px;
+        width: 1150px;
         margin: auto;
         grid-template-columns: repeat(4, 1fr);
         grid-gap: 30px;
@@ -29,13 +29,13 @@ export const CountriesArea = styled.main<{theme: string}>`
             background-color: ${props => props.theme === 'light' ? '#FFF' : 'rgb(43, 55, 67)'};
             color: ${props => props.theme === 'light' ? '#000' : '#FFF'};
             border: none;
-            box-shadow: 1px 1px 0.2em rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 2px 9px 0px #0000000E;
             margin: 0px 5px;
             cursor: pointer;
         }
 
         .active {
-            font-weight: bold
+            font-weight: 900;
         }
     }
 

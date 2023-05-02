@@ -1,5 +1,6 @@
 import * as C from './styles'
 import { SingleCountryTS } from '../../types/SingleCountry'
+import countryCodes from '../../utilities/countryCodes';
 import { Link } from 'react-router-dom'
 import { useForm } from '../../contexts/ThemeContext'
 
@@ -25,7 +26,7 @@ export const SingleCountry = ({
                 <div className='data--firstArea'>
                     <p><span>Native Name: </span>{nativeName}</p>
                     <p className='topLevel'><span>Top Level Domain: </span>{topLevelDomain}</p>
-                    <p><span>Population: </span>{population}</p>
+                    <p><span>Population: </span><span>Population:</span>{' '}{population.toLocaleString()}</p>
                     {currencies &&
                         <p><span>Currencies: </span>{currencies.map(item => item.name)}</p>
                     }
@@ -36,12 +37,25 @@ export const SingleCountry = ({
                         <p><span>Capital: </span>{capital}</p>
                     }
                 </div>
-                {borders &&
-                    <div className='border--area'>
-                        <p>Border Countries: </p>
-                        <div className='borders'>{borders.map((item, index) => <Link to={`/code/${item}`} key={index}>{item}</Link>)}</div> 
+                <div className='border--area'>
+                        <p>
+                            Border Countries: 
+                        </p>
+                        <div className='borders'>
+                            {borders
+                                ? borders.map(
+                                    (border: string, index: number) => (
+                                        <Link
+                                            to={`/code/${border}`}
+                                            className="border"
+                                            key={index}
+                                        >
+                                            {countryCodes[border]}
+                                        </Link>
+                                    ),
+                                ): 'No, border!'}
+                            </div>
                     </div>
-                }
             </div>
         </C.CountryData>
     )

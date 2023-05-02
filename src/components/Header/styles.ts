@@ -1,19 +1,24 @@
 import styled from "styled-components";
 
 export const Header = styled.header<{theme: string}>`
-    height: 70px;
+    height: 80px;
     background-color: ${props => props.theme === 'light' ? '#FFF' : 'rgb(43, 55, 67)'};
     color: ${props => props.theme === 'light' ? '' : '#FFF'};
     transition: all ease 0.2s;
-    box-shadow: 1px 1px 0.2em rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 2px 9px 0px #0000000E;
     transition: all ease 0.2s;
     
     .container {
         display: flex;
-        width: 1024px;
+        width: 1150px;
         margin: auto;
         justify-content: space-between;
         align-items: center;
+
+        a {
+            text-decoration: none;
+            color: ${props => props.theme === 'light' ? '#000' : '#FFF'};
+        }
 
         h1 {
             font-style: normal;
@@ -28,6 +33,11 @@ export const Header = styled.header<{theme: string}>`
             font-weight: 600;
             font-size: 16px;
             line-height: 22px;
+
+            i {
+                padding-right: 10px;
+                font-size: 15px;
+            }
         }
     }
 

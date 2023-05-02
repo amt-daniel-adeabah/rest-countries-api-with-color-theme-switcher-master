@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const CountryPage = styled.main`
-    min-height: calc(100vh - 0px);
+    min-height: calc(100vh - 80px);
     background-color: ${props => props.theme === 'light' ? '' : 'rgb(32, 45, 54)'};
     transition: all ease 0.2s;
     .container {
-        width: 1024px;
+        width: 1150px;
         margin: auto;
         padding: 40px 0px;
         
@@ -26,7 +26,10 @@ export const CountryPage = styled.main`
         width: 120px;
         height: 35px;
         border-radius: 3px;
-        box-shadow: 1px 1px 0.2em rgba(0, 0, 0, 0.2)
+        box-shadow: 0px 2px 9px 0px #0000000E;
+    }
+    i {
+        margin-right: 10px;
     }
 
     @media(min-width: 768px) and (max-width: 1023px){

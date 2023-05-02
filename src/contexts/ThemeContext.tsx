@@ -23,7 +23,7 @@ const initialData: State = {
     theme: 'light'
 } //this initially switch theme to light mode
 
-const ThemeContext = createContext<ContextType | undefined>(undefined)  //primeiro
+const ThemeContext = createContext<ContextType | undefined>(undefined)
 
 export enum themeActions {
     setTheme,

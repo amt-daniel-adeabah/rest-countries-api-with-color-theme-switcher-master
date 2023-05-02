@@ -1,6 +1,7 @@
 import * as C from './styles'
 import { useForm } from '../../contexts/ThemeContext'
 import { themeActions } from '../../contexts/ThemeContext'
+import { Link } from 'react-router-dom'
 
 export const Header = () => {
     const { state, dispatch } = useForm()
@@ -15,8 +16,11 @@ export const Header = () => {
     return (
         <C.Header theme={state.theme}>
             <div className='container'>
-                <h1>Where In the World?</h1>
-                <p onClick={handleChangeTheme}>icon Dark Mode</p>
+            <Link to="/"><h1>Where in the world?</h1></Link>
+                <p onClick={handleChangeTheme}>
+                    <i className={state.theme === 'light' ? 'far fa-moon' : 'fa fa-moon'}></i>
+                    {state.theme === 'light' ? 'Dark Mode' : 'Light Mode'} {/* Conditionally render the text */}
+                </p>
             </div>
         </C.Header>
     )

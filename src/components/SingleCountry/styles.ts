@@ -63,7 +63,7 @@ export const CountryData = styled.div`
                     flex: 1;
                     font-weight: 300;
                     border-radius: 2px;
-                    box-shadow: 1px 1px 0.2em rgba(0, 0, 0, 0.2);
+                    box-shadow: 0px 2px 9px 0px #0000000E;
                 }
             }
         }

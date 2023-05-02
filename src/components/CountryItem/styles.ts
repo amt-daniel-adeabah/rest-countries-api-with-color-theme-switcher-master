@@ -3,11 +3,14 @@ import styled from "styled-components";
 export const CountryItem = styled.div<{theme: string}>`
     background-color: ${props => props.theme === 'light' ? '#FFF' : 'rgb(43, 55, 67)'};
     transition: all ease 0.2s;
-    box-shadow: 1px 1px 0.5em rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 2px 9px 0px #0000000E;
     border-radius: 4px;
+    &:hover {
+        transform: scale(105%);
+    }
     a {
         text-decoration: none;
-        color: #000
+        color: #000;
     }
     .img--area {
         img {
@@ -30,7 +33,7 @@ export const CountryItem = styled.div<{theme: string}>`
         }
         .country--name {
             font-size: 17px;
-            margin: 10px 0px;
+            margin: 10px 0 20px 0;
         }
     }
 

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const InputArea = styled.section<{theme: string}>`
     display: flex;
-    width: 1024px;
+    width: 1150px;
     margin: auto;
     justify-content: space-between;
     padding: 40px 0px;
@@ -10,14 +10,13 @@ export const InputArea = styled.section<{theme: string}>`
 
     .textAreaDiv {
         background-color: ${props => props.theme === 'light' ? '#FFF' : 'rgb(43, 55, 67)'};
-        box-shadow: 1px 1px 0.2em rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 2px 9px 0px #0000000E;
         border-radius: 5px;
         padding: 0 0 0 10px;
         color: ${props => props.theme === 'light' ? '' : '#FFF'};
     }
     input {
         background-color: ${props => props.theme === 'light' ? '#FFF' : 'rgb(43, 55, 67)'};
-        color: ${props => props.theme === 'light' ? '' : '#FFF'};
         border-radius: 5px;
         width: 480px;
         height: 56px;
@@ -27,22 +26,70 @@ export const InputArea = styled.section<{theme: string}>`
         font-size: 14px;
         
         ::placeholder {
-            color: #ccc
+            color: #848484;
+            font-weight: 400;
         }
     }
-    
-    select {
-        width: 200px;
-        height: 56px;
-        border-radius: 5px;
-        padding: 0px 20px;
-        border: none;
-        box-shadow: 1px 1px 0.2em rgba(0, 0, 0, 0.2);
-        outline: 0; 
-        font-size: 14px;
-        background-color: ${props => props.theme === 'light' ? '' : 'rgb(43, 55, 67)'};
-        color: ${props => props.theme === 'light' ? '#000' : '#FFF'};
+    i {
+        margin: 0 20px 0 20px;
+        color: #848484;
     }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+      
+        .dropdown-toggle {
+          width: 200px;
+          height: 56px;
+          background-color: ${props => props.theme === 'light' ? '#FFF' : 'rgb(43, 55, 67)'};
+          color: ${props => props.theme === 'light' ? '#000' : '#FFF'};
+          border: none;
+          border-radius: 5px;
+          padding: 10px;
+          font-size: 16px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          box-shadow: 0px 2px 9px 0px #0000000E;
+        }
+        
+        .dropdown-toggle i {
+            margin-left: 5px;
+            transition: transform 0.2s ease;
+            color: ${props => props.theme === 'light' ? '#000' : '#FFF'};
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            z-index: 1;
+            top: 100%;
+            left: 0;
+            width: 183px;
+            max-height: 200px;
+            overflow-y: auto;
+            background-color: ${props => props.theme === 'light' ? '#FFF' : 'rgb(43, 55, 67)'};
+            color: ${props => props.theme === 'light' ? '#000' : '#FFF'};
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0px 2px 9px 0px #0000000E;
+            padding: 10px;
+            margin-top: 10px;
+        }
+      
+        .dropdown-item {
+          padding: 5px 10px;
+          cursor: pointer;
+          transition: all 0.2s ease;
+      
+          &:hover {
+            background-color: #f2f2f2;
+          }
+        }
+      }
+      
+
 
     @media(max-width: 1024px) {
         & {
@@ -68,7 +115,7 @@ export const InputArea = styled.section<{theme: string}>`
             input {
                 width: 60%;
             }
-            select {
+            .dropdown-toggle {
                 margin-top: 10px;
                 height: 50px;
                 width: max-content;

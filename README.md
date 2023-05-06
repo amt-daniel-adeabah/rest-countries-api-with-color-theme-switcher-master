@@ -70,5 +70,8 @@ Users should be able to:
 - Fixed filter options design
 - More fixes
 
+- [x] 6th may, 2023.
+- Some minor fixes
+
 ## Deployed Link
 Deployed link: https://da-rest-countries.netlify.app/

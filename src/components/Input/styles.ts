@@ -17,6 +17,7 @@ export const InputArea = styled.section<{theme: string}>`
     }
     input {
         background-color: ${props => props.theme === 'light' ? '#FFF' : 'rgb(43, 55, 67)'};
+        color: ${props => props.theme === 'light' ? '#000' : '#FFF'};
         border-radius: 5px;
         width: 480px;
         height: 56px;
@@ -26,7 +27,6 @@ export const InputArea = styled.section<{theme: string}>`
         font-size: 14px;
         
         ::placeholder {
-            color: #848484;
             font-weight: 400;
         }
     }

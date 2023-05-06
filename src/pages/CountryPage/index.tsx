@@ -33,7 +33,7 @@ export const CountryPage = () => {
             <div className='container'>
                 <Link to="/" className='back--button'><i className="fas fa-long-arrow-alt-left"></i> Back</Link>
                 {loading &&
-                    <div className='loading'>Loading..</div>
+                    <div className='loading'>Loading...</div>
                 }
                 {!loading &&
                     country.map((item) => (

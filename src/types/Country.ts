@@ -1,4 +1,3 @@
-
 export interface CountryTS {
     name: string,
     nativeName: string,

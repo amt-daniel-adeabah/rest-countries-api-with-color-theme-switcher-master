@@ -84,7 +84,7 @@ export const InputArea = styled.section<{theme: string}>`
           transition: all 0.2s ease;
       
           &:hover {
-            background-color: #f2f2f2;
+            background-color: ${props => props.theme === 'light' ? '#b9b5b536' : '#1e1e1e'};
           }
         }
       }

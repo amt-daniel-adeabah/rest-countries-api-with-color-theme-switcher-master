@@ -30,6 +30,18 @@ Users should be able to:
 
 <code>- Typescript </p>- React </p>- HTML5 </p>- CSS</code>
 
+## Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/danieladeabah/rest-countries-api-with-color-theme-switcher-master.git
+```
+
+2. npm install
+
+3. npm start
+
 ## Steps To Development
 
 - [x] 19th april, 2023.
@@ -71,6 +83,9 @@ Users should be able to:
 - More fixes
 
 - [x] 6th may, 2023.
+- Some minor fixes
+
+- [x] 12th - 13th may, 2023.
 - Some minor fixes
 
 ## Deployed Link

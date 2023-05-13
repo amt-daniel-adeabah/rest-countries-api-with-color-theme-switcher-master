@@ -4,6 +4,7 @@
 - [Overview](#overview)
 - [Screenshot](#screenshot)
 - [Languages](#Languages)
+- [Installation](#Installation)
 - [Steps](#Steps-To-Development)
 - [Deployment](#deployed-link)
 

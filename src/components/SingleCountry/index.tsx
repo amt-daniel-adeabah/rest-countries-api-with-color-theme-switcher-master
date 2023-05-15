@@ -46,7 +46,7 @@ export const SingleCountry = ({
                                 ? borders.map(
                                     (border: string, index: number) => (
                                         <Link
-                                            to={`/code/${border}`}
+                                            to={`/country/${countryCodes[border]}`}
                                             className="border"
                                             key={index}
                                         >

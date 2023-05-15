@@ -15,8 +15,8 @@ export const Countries = () => {
   const [countries, setCountries] = useState<CountriesTS[]>([]);
   const [search, setSearch] = useState('');
   const [selectedRegion, setSelectedRegion] = useState('');
-
   const [offset, setOffset] = useState(0);
+  const [showNoCountryMessage, setShowNoCountryMessage] = useState(false); // if "region has no searched country" message
 
   useEffect(() => {
     getAllCountries();
@@ -50,7 +50,7 @@ export const Countries = () => {
     const countryName = country.name.toLowerCase();
     const searchInput = search.toLowerCase();
     const region = country.region.toLowerCase();
-    
+
     if (selectedRegion) {
       return region.includes(selectedRegion.toLowerCase()) && countryName.includes(searchInput);
     } else {
@@ -60,6 +60,11 @@ export const Countries = () => {
 
   const pagCountries = filteredCountries.slice(offset, offset + LIMIT);
 
+  useEffect(() => {
+    // Check if the searched country is not in the selected region
+    setShowNoCountryMessage(selectedRegion !== '' && filteredCountries.length === 0);
+  }, [selectedRegion, filteredCountries]);
+
   return (
     <C.CountriesArea theme={state.theme}>
       <Input value={search} search={handleSearch} selectRegion={handleSelectRegion} />
@@ -67,6 +72,8 @@ export const Countries = () => {
       <div className="countries">
         {loading ? (
           <div className="loading">Loading...</div>
+        ) : showNoCountryMessage ? ( 
+          <div className="no-country-message">Searched country is not in this region</div>
         ) : (
           pagCountries.map((item) => (
             <CountryItem

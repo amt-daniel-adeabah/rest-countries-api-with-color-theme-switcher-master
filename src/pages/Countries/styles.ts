@@ -11,7 +11,7 @@ export const CountriesArea = styled.main<{theme: string}>`
         grid-template-columns: repeat(4, 1fr);
         grid-gap: 30px;
 
-        .loading {
+        .loading, .no-country-message {
             color: ${props => props.theme === 'light' ? '#000' : '#FFF'};
         }
     }

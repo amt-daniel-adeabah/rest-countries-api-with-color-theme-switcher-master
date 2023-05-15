@@ -26,7 +26,7 @@ export const SingleCountry = ({
                 <div className='data--firstArea'>
                     <p><span>Native Name: </span>{nativeName}</p>
                     <p className='topLevel'><span>Top Level Domain: </span>{topLevelDomain}</p>
-                    <p><span>Population: </span><span>Population:</span>{' '}{population.toLocaleString()}</p>
+                    <p><span>Population: </span>{' '}{population.toLocaleString()}</p>
                     {currencies &&
                         <p><span>Currencies: </span>{currencies.map(item => item.name)}</p>
                     }

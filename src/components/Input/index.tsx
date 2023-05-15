@@ -6,63 +6,77 @@ import useDebounce from './useDebounce'
 
 const delay = 500
 
-export const Input = ({value, search}: InputTS) => {
-    const { state } = useForm()
+export const Input = ({ value, search, selectRegion }: InputTS) => {
+  const { state } = useForm()
 
-    const [input, setInput] = useState('')
-    const [dropdownOpen, setDropdownOpen] = useState(false) // New state for dropdown menu
+  const [input, setInput] = useState('')
+  const [dropdownOpen, setDropdownOpen] = useState(false) // New state for dropdown menu
+  const [selectedRegion, setSelectedRegion] = useState('') // New state for selected region
 
-    const deboucedChange = useDebounce(search, delay)
+  const debouncedChange = useDebounce((value: string) => {
+    search(value)
+  }, delay)
 
-    const handleChange = (e: string) => {
-        deboucedChange(e)
-        setInput(e)
-    }
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = e.target.value
+    setInput(inputValue)
+    debouncedChange(inputValue)
+  }
 
-    const handleToggleDropdown = () => {
-        setDropdownOpen(!dropdownOpen) // Toggle the dropdownOpen state
-    }
+  const handleToggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen) // Toggle the dropdownOpen state
+  }
 
-    return (
-        <C.InputArea theme={state.theme}>
-            <div className='textAreaDiv'>
-            <i className="fa fa-search"></i> <input
-                    type="text"
-                    placeholder="Search for a country..."
-                    value={input}
-                    onChange={e => handleChange(e.target.value)}
-                />
+  const handleSelectRegion = (region: string) => {
+    setSelectedRegion(region)
+    selectRegion(region)
+  }
+
+  const handleSearch = () => {
+    search(input)
+  }
+
+  return (
+    <C.InputArea theme={state.theme}>
+      <div className='textAreaDiv'>
+        <i className="fa fa-search"></i> <input
+          type="text"
+          placeholder="Search for a country..."
+          value={input}
+          onChange={handleChange}
+          onBlur={handleSearch} // Trigger search when input loses focus
+        />
+      </div>
+
+      <div className="dropdown">
+        <button className="dropdown-toggle" onClick={handleToggleDropdown}>
+          Filter by Region <i className={dropdownOpen ? 'fa fa-chevron-up' : 'fa fa-chevron-down'}></i>
+        </button>
+
+        {/* Only render the dropdown menu if the dropdownOpen state is true */}
+        {dropdownOpen && (
+          <div className="dropdown-menu">
+            <div className="dropdown-item" onClick={() => handleSelectRegion('')}>
+              All
             </div>
-
-            <div className="dropdown">
-                <button className="dropdown-toggle" onClick={handleToggleDropdown}>
-                    Filter by Region <i className={dropdownOpen ? 'fa fa-chevron-up' : 'fa fa-chevron-down'}></i>
-                </button>
-
-                {/* Only render the dropdown menu if the dropdownOpen state is true */}
-                {dropdownOpen && (
-                    <div className="dropdown-menu">
-                        <div className="dropdown-item" onClick={() => handleChange('')}>
-                            All
-                        </div>
-                        <div className="dropdown-item" onClick={() => handleChange('Africa')}>
-                            Africa
-                        </div>
-                        <div className="dropdown-item" onClick={() => handleChange('America')}>
-                            America
-                        </div>
-                        <div className="dropdown-item" onClick={() => handleChange('Asia')}>
-                            Asia
-                        </div>
-                        <div className="dropdown-item" onClick={() => handleChange('Europe')}>
-                            Europe
-                        </div>
-                        <div className="dropdown-item" onClick={() => handleChange('Oceania')}>
-                            Oceania
-                        </div>
-                    </div>
-                )}
+            <div className="dropdown-item" onClick={() => handleSelectRegion('Africa')}>
+              Africa
             </div>
-        </C.InputArea>
-    )
+            <div className="dropdown-item" onClick={() => handleSelectRegion('America')}>
+              America
+            </div>
+            <div className="dropdown-item" onClick={() => handleSelectRegion('Asia')}>
+              Asia
+            </div>
+            <div className="dropdown-item" onClick={() => handleSelectRegion('Europe')}>
+              Europe
+            </div>
+            <div className="dropdown-item" onClick={() => handleSelectRegion('Oceania')}>
+              Oceania
+            </div>
+          </div>
+        )}
+      </div>
+    </C.InputArea>
+  )
 }

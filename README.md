@@ -89,5 +89,11 @@ git clone https://github.com/danieladeabah/rest-countries-api-with-color-theme-s
 - [x] 12th - 13th may, 2023.
 - Some minor fixes
 
+- [x] 15th - 13th may, 2023.
+- Fixed filter and search
+    - This helps to search within a specific region selected
+- More fixes
+
+
 ## Deployed Link
 Deployed link: https://da-rest-countries.netlify.app/

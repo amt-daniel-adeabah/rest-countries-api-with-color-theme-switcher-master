@@ -94,6 +94,9 @@ git clone https://github.com/danieladeabah/rest-countries-api-with-color-theme-s
     - This helps to search within a specific region selected
 - More fixes
 
+- [x] 20th may, 2023.
+- More fixes
+
 
 ## Deployed Link
 Deployed link: https://da-rest-countries.netlify.app/

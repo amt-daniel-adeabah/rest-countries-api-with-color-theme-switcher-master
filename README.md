@@ -46,25 +46,19 @@ git clone https://github.com/danieladeabah/rest-countries-api-with-color-theme-s
 ## Steps To Development
 
 - [x] 19th april, 2023.
-- Installed node
-- Created the project using - <code>npx create-react-app rest-countries-api-with-color-theme-switcher-master</code>
+- Installed nodeJs
+- Run - <code>npx create-react-app rest-countries-api-with-color-theme-switcher-master --template typescript</code>
 - Created a new repository on my github for the project
 - Committed and pushed to repository for the first time.
 - Deployed page to netlify
 
 - [x] 20th april, 2023.
 - Updated the readme file to match the project descriptions
-- More fixes for readme
+- More fixes
 
 - [x] 21st - 24th april, 2023.
-- Added Components folder in src.
-    - [Header -> index.tsx and styles.ts],
-- Added Pages folder in src. 
-    - [Countries -> index.tsx and styles.ts] & [CountryPage -> index.tsx and styles.ts], 
-- Added Routes folder in src. 
-    - [ MainRoutes.tsx ] 
-- Added api.ts, Apps.tsx, custom.d.ts, index.css, index.tsx, react-app-env.d.ts, tsconfig.json as well as updated other files to fit the app development from the default created packages from npm.
-- On this day, I designed the Navigation or header.
+- Added Components folders
+- On this day, I designed the Navigation or the header.
 - More fixes
 
 - [x] 25th - 27th april, 2023.
@@ -94,7 +88,8 @@ git clone https://github.com/danieladeabah/rest-countries-api-with-color-theme-s
     - This helps to search within a specific region selected
 - More fixes
 
-- [x] 20th may, 2023.
+- [x] 20th - 22nd may, 2023.
+- Used context Api which helped me to access the rest of the data on other pages.
 - More fixes
 
 

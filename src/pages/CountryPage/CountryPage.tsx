@@ -1,39 +1,37 @@
-import * as C from './styles'
-import { Link, useParams } from 'react-router-dom'
-import { SingleCountry } from '../../components/SingleCountry'
-import { useEffect, useState } from 'react'
-import { CountryTS } from '../../types/Country'
-import { api } from '../../api'
-import { useForm } from '../../contexts/ThemeContext'
+import * as C from './styles';
+import { Link, useParams } from 'react-router-dom';
+import { SingleCountry } from '../../components/SingleCountry/SingleCountry';
+import { useEffect, useState } from 'react';
+import { CountryTS } from '../../types/Country';
+import { useApi } from '../../contexts/apiContext';
+import { useForm } from '../../contexts/ThemeContext';
 
 export const CountryPage = () => {
-  const { state } = useForm()
-  const { name, code } = useParams()
+  const { state } = useForm();
+  const { name } = useParams();
+  const countries = useApi();
 
-  const [loading, setLoading] = useState(false)
-  const [country, setCountry] = useState<CountryTS[]>([])
+  const [loading, setLoading] = useState(false);
+  const [country, setCountry] = useState<CountryTS[]>([]);
 
   useEffect(() => {
     if (name) {
-      getCountry(name)
-    } else if (code) {
-      getCountry(code)
+      getCountry(name);
     }
-  }, [name, code])
+  }, [name]);  
 
   const getCountry = async (param: string) => {
-    setLoading(true)
+    setLoading(true);
     try {
-      let response = await api.getCountries()
-      let country = response.find((item: CountryTS) => item.name === param)
-      setCountry(country ? [country] : [])
+      let country = countries.find((item: CountryTS) => item.name === param);
+      setCountry(country ? [country] : []);
     } catch (error) {
-      console.error('Error fetching country:', error)
-      setCountry([])
+      console.error('Error fetching country:', error);
+      setCountry([]);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
+  };
 
   return (
     <C.CountryPage theme={state.theme}>
@@ -60,5 +58,5 @@ export const CountryPage = () => {
         ))}
       </div>
     </C.CountryPage>
-  )
-}
+  );
+};

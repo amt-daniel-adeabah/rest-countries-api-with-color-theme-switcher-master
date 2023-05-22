@@ -2,7 +2,7 @@ import * as C from './styles';
 import { SingleCountryTS } from '../../types/SingleCountry';
 import { Link } from 'react-router-dom';
 import { useForm } from '../../contexts/ThemeContext';
-import { api } from '../../api';
+import { useApi } from '../../contexts/apiContext';
 import { useEffect, useState } from 'react';
 
 export const SingleCountry = ({
@@ -19,30 +19,25 @@ export const SingleCountry = ({
   flag
 }: SingleCountryTS) => {
   const { state } = useForm();
+  const countries = useApi();
   const [borderFullNames, setBorderFullNames] = useState<string[]>([]);
 
   useEffect(() => {
-    const getBorderFullNames = async (borderCodes: string[]): Promise<string[]> => {
-      try {
-        const response = await api.getCountries();
-        const borderCountries = response.filter((country: any) => borderCodes.includes(country.alpha3Code));
-        const borderCountryNames = borderCountries.map((country: any) => country.name);
-        return borderCountryNames;
-      } catch (error) {
-        console.error('Failed to retrieve border countries:', error);
-        return [];
-      }
+    const getBorderFullNames = (borderCodes: string[]): string[] => {
+      const borderCountries = countries.filter((country: any) => borderCodes.includes(country.alpha3Code));
+      const borderCountryNames = borderCountries.map((country: any) => country.name);
+      return borderCountryNames;
     };
 
-    const fetchBorderFullNames = async () => {
+    const fetchBorderFullNames = () => {
       if (borders && borders.length > 0) {
-        const fullNames = await getBorderFullNames(borders);
+        const fullNames = getBorderFullNames(borders);
         setBorderFullNames(fullNames);
       }
     };
 
     fetchBorderFullNames();
-  }, [borders]);
+  }, [borders, countries]);
 
   return (
     <C.CountryData theme={state.theme}>

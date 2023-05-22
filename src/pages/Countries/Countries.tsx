@@ -1,18 +1,19 @@
 import * as C from './styles';
 import { useEffect, useState } from 'react';
 import { CountriesTS } from '../../types/Countries';
-import { Input } from '../../components/Input';
-import { api } from '../../api';
-import { CountryItem } from '../../components/CountryItem';
+import { Input } from '../../components/Input/Input';
+import { CountryItem } from '../../components/CountryItem/CountryItem';
 import Pagination from './Pagination';
 import { useForm } from '../../contexts/ThemeContext';
+import { useApi } from '../../contexts/apiContext';
 
 const LIMIT = 24;
 
 export const Countries = () => {
   const { state } = useForm();
+  const countries = useApi();
+
   const [loading, setLoading] = useState(false);
-  const [countries, setCountries] = useState<CountriesTS[]>([]);
   const [search, setSearch] = useState('');
   const [selectedRegion, setSelectedRegion] = useState('');
   const [offset, setOffset] = useState(0);
@@ -29,8 +30,6 @@ export const Countries = () => {
   const getAllCountries = async () => {
     setLoading(true);
     try {
-      const fetchedCountries = await api.getCountries();
-      setCountries(fetchedCountries);
     } catch (error) {
       console.error('Error fetching countries:', error);
     } finally {
@@ -46,7 +45,7 @@ export const Countries = () => {
     setSelectedRegion(region);
   };
 
-  const filteredCountries = countries.filter((country) => {
+  const filteredCountries = countries?.filter((country: CountriesTS) => {
     const countryName = country.name.toLowerCase();
     const searchInput = search.toLowerCase();
     const region = country.region.toLowerCase();
@@ -58,11 +57,11 @@ export const Countries = () => {
     }
   });
 
-  const pagCountries = filteredCountries.slice(offset, offset + LIMIT);
+  const pagCountries = filteredCountries?.slice(offset, offset + LIMIT) || [];
 
   useEffect(() => {
-    // Check if the searched country is not in the selected region
-    setShowNoCountryMessage(selectedRegion !== '' && filteredCountries.length === 0);
+    // If the searched country is not in the selected region
+    setShowNoCountryMessage(selectedRegion !== '' && filteredCountries?.length === 0);
   }, [selectedRegion, filteredCountries]);
 
   return (
@@ -72,10 +71,10 @@ export const Countries = () => {
       <div className="countries">
         {loading ? (
           <div className="loading">Loading...</div>
-        ) : showNoCountryMessage ? ( 
+        ) : showNoCountryMessage ? (
           <div className="no-country-message">Searched country is not in this region</div>
         ) : (
-          pagCountries.map((item) => (
+          pagCountries?.map((item: CountriesTS) => (
             <CountryItem
               key={item.numericCode}
               name={item.name}
@@ -88,7 +87,7 @@ export const Countries = () => {
         )}
       </div>
 
-      <Pagination limit={LIMIT} total={filteredCountries.length} offset={offset} setOffset={setOffset} />
+      <Pagination limit={LIMIT} total={filteredCountries?.length || 0} offset={offset} setOffset={setOffset} />
     </C.CountriesArea>
   );
 };

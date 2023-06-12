@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { SingleCountry } from '../../components/SingleCountry/SingleCountry';
 import { useEffect, useState } from 'react';
 import { CountryTS } from '../../types/Country';
-import { useApi } from '../../contexts/apiContext';
+import { useApi } from '../../contexts/ApiContext';
 import { useForm } from '../../contexts/ThemeContext';
 
 export const CountryPage = () => {

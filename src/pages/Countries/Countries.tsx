@@ -5,7 +5,7 @@ import { Input } from '../../components/Input/Input';
 import { CountryItem } from '../../components/CountryItem/CountryItem';
 import Pagination from './Pagination';
 import { useForm } from '../../contexts/ThemeContext';
-import { useApi } from '../../contexts/apiContext';
+import { useApi } from '../../contexts/ApiContext';
 
 const LIMIT = 24;
 

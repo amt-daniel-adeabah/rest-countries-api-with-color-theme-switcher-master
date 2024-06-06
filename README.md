@@ -43,55 +43,5 @@ git clone https://github.com/danieladeabah/rest-countries-api-with-color-theme-s
 
 3. npm start
 
-## Steps To Development
-
-- [x] 19th april, 2023.
-- Installed nodeJs
-- Run - <code>npx create-react-app rest-countries-api-with-color-theme-switcher-master --template typescript</code>
-- Created a new repository on my github for the project
-- Committed and pushed to repository for the first time.
-- Deployed page to netlify
-
-- [x] 20th april, 2023.
-- Updated the readme file to match the project descriptions
-- More fixes
-
-- [x] 21st - 24th april, 2023.
-- Added Components folders
-- On this day, I designed the Navigation or the header.
-- More fixes
-
-- [x] 25th - 27th april, 2023.
-- Added inputs for search and filter
-- Able to display countries from http request from <code>axios</code> on homepage
-- More fixes
-
-- [x] 28th - 29th april, 2023.
-- Added Country page, theme, and pagnation.
-- Looked forward to adding <code>fontawesome</code> in order to import and display icons
-- More fixes
-
-- [x] 30th - 2nd may, 2023.
-- Added fontawesome
-- Worked responsiveness
-- Fixed filter options design
-- More fixes
-
-- [x] 6th may, 2023.
-- Some minor fixes
-
-- [x] 12th - 13th may, 2023.
-- Some minor fixes
-
-- [x] 15th may, 2023.
-- Fixed filter and search
-    - This helps to search within a specific region selected
-- More fixes
-
-- [x] 20th - 22nd may, 2023.
-- Used context Api which helped me to access the rest of the data on other pages.
-- More fixes
-
-
 ## Deployed Link
 Deployed link: https://da-rest-countries.netlify.app/
